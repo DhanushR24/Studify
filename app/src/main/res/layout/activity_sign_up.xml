@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUp"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:padding="20dp"
+    >
+
+    <ImageView
+        android:id="@+id/logoRounded"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/student_smile"
+        android:transitionName="logo"
+        />
+
+    <TextView
+        android:id="@+id/logoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Welcome to studify"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        android:fontFamily="@font/bungee"
+        android:layout_marginTop="-10dp"
+        android:textColor="@color/pink_primary"
+
+        android:transitionName="logoText"
+        />
+
+    <TextView
+        android:id="@+id/logoTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Sign up and get Started"
+        android:textSize="18sp"
+        android:transitionName="logoTag"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+            android:hint="Full Name"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+            android:hint="Email"
+
+            android:transitionName="email"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+            android:hint="Password"
+            app:passwordToggleEnabled="true"
+            android:transitionName="password"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/confirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+            android:hint="Confirm Password"
+            app:passwordToggleEnabled="true"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/signUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Let's GO"
+            android:background="@color/pink_primary"
+            android:textColor="@color/white"
+            android:transitionName="button"
+            />
+
+        <Button
+            android:id="@+id/existingUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Already have an account ? Sign In"
+            android:background="#00000000"
+            android:textColor="@color/black"
+            android:transitionName="loginSignUp"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>
