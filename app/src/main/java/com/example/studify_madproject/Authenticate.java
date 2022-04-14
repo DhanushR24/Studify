@@ -38,6 +38,15 @@ public class Authenticate extends AppCompatActivity {
         signIn = findViewById(R.id.signIn);
         signUp = findViewById(R.id.newUser);
 
+        signIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Authenticate.this, Dashboard.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
