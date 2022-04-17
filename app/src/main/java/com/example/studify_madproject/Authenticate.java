@@ -11,6 +11,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -41,6 +42,7 @@ public class Authenticate extends AppCompatActivity {
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(Authenticate.this, email.getEditText().getText() + " " + password.getEditText().getText(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Authenticate.this, Dashboard.class);
                 startActivity(intent);
                 finish();

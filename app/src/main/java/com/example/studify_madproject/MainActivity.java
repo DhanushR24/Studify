@@ -32,8 +32,11 @@ public class MainActivity extends AppCompatActivity {
         image = findViewById(R.id.logoRounded);
         logoText = findViewById(R.id.progressBar);
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        View decorView = getWindow().getDecorView();
 
+        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
         new Handler().postDelayed(
                 new Runnable() {
                     @Override
