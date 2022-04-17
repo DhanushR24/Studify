@@ -11,6 +11,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -19,7 +20,7 @@ public class SignUp extends AppCompatActivity {
     Button signUp, signIn;
     ImageView image;
     TextView logoText, logoTag;
-    TextInputLayout email, password;
+    TextInputLayout name, email, password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +33,7 @@ public class SignUp extends AppCompatActivity {
         logoText = findViewById(R.id.logoText);
         logoTag = findViewById(R.id.logoTag);
 
+        name = findViewById(R.id.name);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         signIn = findViewById(R.id.existingUser);
@@ -54,6 +56,14 @@ public class SignUp extends AppCompatActivity {
 
                 ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignUp.this, pairs);
                 startActivity(intent, options.toBundle());
+            }
+        });
+
+        // SIGN UP HERE >
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(SignUp.this, "Name : " + name.getEditText().getText(), Toast.LENGTH_SHORT).show();
             }
         });
     }
