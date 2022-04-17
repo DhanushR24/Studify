@@ -1,5 +1,6 @@
 package com.example.studify_madproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActivityOptions;
@@ -11,15 +12,24 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SignUp extends AppCompatActivity {
 
-    Button signUp, signIn;
+    private Button signUp, signIn;
     ImageView image;
     TextView logoText, logoTag;
-    TextInputLayout email, password;
+    private TextInputLayout email, password;
+    private String em,ps;
+    Validation validate;
+    FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +46,8 @@ public class SignUp extends AppCompatActivity {
         password = findViewById(R.id.password);
         signIn = findViewById(R.id.existingUser);
         signUp = findViewById(R.id.signUp);
-
+        mAuth=FirebaseAuth.getInstance();
+        validate=new Validation(this);
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,6 +66,35 @@ public class SignUp extends AppCompatActivity {
                 ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignUp.this, pairs);
                 startActivity(intent, options.toBundle());
             }
+        });
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               handleSignup();
+            }
+
+            private void handleSignup() {
+                em = email.getEditText().getText().toString();
+                ps = password.getEditText().getText().toString();
+
+
+                if (validate.checkEm(em) && validate.checkPass(ps)) {
+                    mAuth.createUserWithEmailAndPassword(em,ps).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()) {
+                                FirebaseUser user=mAuth.getCurrentUser();
+                                Toast.makeText(SignUp.this,user.getEmail()+ "Signup Success", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }
+                    else
+                    {
+                        Toast.makeText(SignUp.this, "Invalid Details Enter Again", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
         });
     }
 }

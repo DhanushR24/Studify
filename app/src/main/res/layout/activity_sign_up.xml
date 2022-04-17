@@ -105,11 +105,12 @@
             android:hint="Confirm Password"
             app:passwordToggleEnabled="true"
             >
+
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passag"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                />
+                android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
 

@@ -1,5 +1,6 @@
 package com.example.studify_madproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActivityOptions;
@@ -11,15 +12,23 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Authenticate extends AppCompatActivity {
 
-    Button signUp, signIn;
+    private Button signUp, signIn;
     ImageView image;
     TextView logoText, logoTag;
-    TextInputLayout email, password;
+    private TextInputLayout email, password;
+    Validation validate;
+    private String em,ps;
+    FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +46,8 @@ public class Authenticate extends AppCompatActivity {
         password = findViewById(R.id.password);
         signIn = findViewById(R.id.signIn);
         signUp = findViewById(R.id.newUser);
-
+        validate=new Validation(this);
+        mAuth=FirebaseAuth.getInstance();
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,6 +67,33 @@ public class Authenticate extends AppCompatActivity {
                 startActivity(intent, options.toBundle());
             }
         });
+        signIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handleLoginBtn();
+            }
 
+            private void handleLoginBtn() {
+                em=email.getEditText().getText().toString();
+                ps=password.getEditText().getText().toString();
+                if(validate.checkEm(em) && validate.checkPass(ps)) {
+                Toast.makeText(Authenticate.this, "Valid Credentials", Toast.LENGTH_SHORT).show();
+                mAuth.signInWithEmailAndPassword(em,ps).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful())
+                        {
+                            Toast.makeText(Authenticate.this, "Signin SuccessFull", Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            Toast.makeText(Authenticate.this, "Invalid Login Details", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+                }
+            }
+
+        });
     }
 }
