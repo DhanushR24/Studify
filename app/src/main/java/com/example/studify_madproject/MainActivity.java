@@ -13,17 +13,23 @@ import android.widget.ProgressBar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.util.Pair;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 
 public class MainActivity extends AppCompatActivity {
 
     ImageView image;
     ProgressBar logoText;
+    FirebaseAuth mAuth;
+    FirebaseUser user;
     private static int SPLASH_SCREEN_TIME = 5000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        mAuth=FirebaseAuth.getInstance();
+        user=mAuth.getCurrentUser();
         if(getSupportActionBar() != null)
         {
             getSupportActionBar().hide();
@@ -55,5 +61,15 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         , SPLASH_SCREEN_TIME);
+        if(user!=null)
+        {
+            Intent i= new Intent(getApplicationContext(),Dashboard.class);
+            startActivity(i);
+        }
+        else
+        {
+            Intent i= new Intent(getApplicationContext(),Authenticate.class);
+            startActivity(i);
+        }
     }
 }

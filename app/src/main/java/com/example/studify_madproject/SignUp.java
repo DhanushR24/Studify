@@ -20,6 +20,8 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUp extends AppCompatActivity {
 
@@ -27,7 +29,7 @@ public class SignUp extends AppCompatActivity {
     ImageView image;
     TextView logoText, logoTag;
     private TextInputLayout name, email, password;
-    private String em,ps;
+    private String em,ps,nm;
     Validation validate;
     FirebaseAuth mAuth;
     @Override
@@ -77,24 +79,46 @@ public class SignUp extends AppCompatActivity {
             private void handleSignup() {
                 em = email.getEditText().getText().toString();
                 ps = password.getEditText().getText().toString();
+                nm=name.getEditText().getText().toString();
 
-
-                if (validate.checkEm(em) && validate.checkPass(ps)) {
-                    mAuth.createUserWithEmailAndPassword(em,ps).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()) {
-                                FirebaseUser user=mAuth.getCurrentUser();
-                                Toast.makeText(SignUp.this,user.getEmail()+ "Signup Success", Toast.LENGTH_SHORT).show();
+                if(!nm.isEmpty()) {
+                    if (validate.checkEm(em) && validate.checkPass(ps)) {
+                        mAuth.createUserWithEmailAndPassword(em, ps).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    saveName(user);
+                                    user.sendEmailVerification()
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if (task.isSuccessful()) {
+                                                        Toast.makeText(SignUp.this, "Verify Your Email", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                }
+                                            });
+                                    Toast.makeText(SignUp.this, user.getEmail() + "Signup Success", Toast.LENGTH_SHORT).show();
+                                }
                             }
-                        }
-                    });
+                        });
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(), "Name Empty", Toast.LENGTH_SHORT).show();
+                    }
                 }
                     else
                     {
                         Toast.makeText(SignUp.this, "Invalid Details Enter Again", Toast.LENGTH_SHORT).show();
                     }
                 }
+
+            private void saveName(FirebaseUser user) {
+                FirebaseDatabase fbdbase=FirebaseDatabase.getInstance();
+                DatabaseReference rootref=fbdbase.getReference();
+                DatabaseReference nameref=rootref.child("Users").child(user.getUid()).child("Name");
+                nameref.setValue(nm);
+            }
 
         });
     }

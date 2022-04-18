@@ -19,6 +19,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Authenticate extends AppCompatActivity {
 
@@ -83,7 +84,16 @@ public class Authenticate extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful())
                         {
-                            Toast.makeText(Authenticate.this, "Signin SuccessFull", Toast.LENGTH_SHORT).show();
+                            FirebaseUser user= mAuth.getCurrentUser();
+                            if(user.isEmailVerified()) {
+                                Toast.makeText(Authenticate.this, "Signin SuccessFull", Toast.LENGTH_SHORT).show();
+                                Intent i = new Intent(getApplicationContext(), Dashboard.class);
+                                startActivity(i);
+                            }
+                            else
+                            {
+                                Toast.makeText(Authenticate.this, "Please Verify Your Email", Toast.LENGTH_SHORT).show();
+                            }
                         }
                         else
                         {
