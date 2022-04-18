@@ -26,7 +26,7 @@ public class SignUp extends AppCompatActivity {
     private Button signUp, signIn;
     ImageView image;
     TextView logoText, logoTag;
-    private TextInputLayout email, password;
+    private TextInputLayout name, email, password;
     private String em,ps;
     Validation validate;
     FirebaseAuth mAuth;
@@ -42,6 +42,7 @@ public class SignUp extends AppCompatActivity {
         logoText = findViewById(R.id.logoText);
         logoTag = findViewById(R.id.logoTag);
 
+        name = findViewById(R.id.name);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         signIn = findViewById(R.id.existingUser);

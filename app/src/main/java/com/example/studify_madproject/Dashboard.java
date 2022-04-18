@@ -16,13 +16,11 @@ import com.google.android.material.navigation.NavigationBarView;
 
 public class Dashboard extends AppCompatActivity {
 
-    ActivityMainBinding binding;
     BottomNavigationView nav;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_dashboard);
 
 

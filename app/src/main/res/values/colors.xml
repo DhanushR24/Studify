@@ -9,4 +9,12 @@
     <color name="pink_primary">#f22f46</color>
     <color name="pink_light">#ff6a71</color>
     <color name="pink_dark">#b8001f</color>
+
+    <color name="light_red">#FF6363</color>
+    <color name="light_orange">#FFAB76</color>
+    <color name="light_yellow">#FFFDA2</color>
+    <color name="light_green">#BAFFB4</color>
+    <color name="light_purple">#CE49BF</color>
+    <color name="light_blue">#40DFEF</color>
+
 </resources>
