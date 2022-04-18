@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
                         ActivityOptions activityOptions = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
                         startActivity(intent, activityOptions.toBundle());
+
+                        finish();
                     }
                 }
         , SPLASH_SCREEN_TIME);
