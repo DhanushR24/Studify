@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     ProgressBar logoText;
     FirebaseAuth mAuth;
     FirebaseUser user;
+    Intent intent;
     private static int SPLASH_SCREEN_TIME = 5000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,33 +44,34 @@ public class MainActivity extends AppCompatActivity {
         int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
+
         new Handler().postDelayed(
                 new Runnable() {
                     @Override
                     public void run() {
-                        Intent intent = new Intent(MainActivity.this, Authenticate.class);
+                        if(user!=null)
+                        {
+                            intent= new Intent(getApplicationContext(),Dashboard.class);
+                            startActivity(intent);
+                        }
+                        else
+                        {
+                            Pair pairs[] = new Pair[2];
 
-                        Pair pairs[] = new Pair[2];
+                            pairs[0] = new Pair<View, String>(image, "logo");
+                            pairs[1] = new Pair<View, String>(logoText, "logoText");
 
-                        pairs[0] = new Pair<View, String>(image, "logo");
-                        pairs[1] = new Pair<View, String>(logoText, "logoText");
+                            ActivityOptions activityOptions = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
 
-                        ActivityOptions activityOptions = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
-                        startActivity(intent, activityOptions.toBundle());
+                            intent = new Intent(MainActivity.this, Authenticate.class);
+                            startActivity(intent, activityOptions.toBundle());
+
+                        }
 
                         finish();
                     }
                 }
         , SPLASH_SCREEN_TIME);
-        if(user!=null)
-        {
-            Intent i= new Intent(getApplicationContext(),Dashboard.class);
-            startActivity(i);
-        }
-        else
-        {
-            Intent i= new Intent(getApplicationContext(),Authenticate.class);
-            startActivity(i);
-        }
+
     }
 }
