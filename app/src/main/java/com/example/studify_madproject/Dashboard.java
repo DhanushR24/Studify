@@ -25,13 +25,16 @@ import com.google.firebase.database.ValueEventListener;
 public class Dashboard extends AppCompatActivity {
 
     BottomNavigationView nav;
-
+    public static FirebaseAuth mAuth;
+    public static FirebaseUser us;
+    public static String name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_dashboard);
-
+        mAuth=FirebaseAuth.getInstance();
+        us=mAuth.getCurrentUser();
         replaceFragment(new HomeFragment());
         FirebaseDatabase fdb=FirebaseDatabase.getInstance();
         DatabaseReference rootref= fdb.getReference();
@@ -40,6 +43,7 @@ public class Dashboard extends AppCompatActivity {
         nameref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                name = snapshot.getValue().toString();
                 Toast.makeText(Dashboard.this, "Welcome"+snapshot.getValue().toString()+"!", Toast.LENGTH_SHORT).show();
             }
 
@@ -68,7 +72,9 @@ public class Dashboard extends AppCompatActivity {
                         return true;
 
                     case R.id.navigation_profile:
+                        replaceFragment(new profileFragment());
                         return true;
+
                     default:
                         return false;
                 }
