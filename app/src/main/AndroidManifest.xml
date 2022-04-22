@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.studify_madproject">
 
@@ -10,6 +9,11 @@
         android:roundIcon="@mipmap/student_icon96_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StudifyMADProject">
+        <activity
+            android:name=".NoteDetails"
+            android:exported="false"
+            android:label="@string/title_activity_note_details"
+            android:theme="@style/Theme.StudifyMADProject.NoActionBar" />
         <activity
             android:name=".Dashboard"
             android:exported="false" />

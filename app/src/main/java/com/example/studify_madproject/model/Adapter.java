@@ -1,5 +1,6 @@
 package com.example.studify_madproject.model;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.studify_madproject.NoteDetails;
 import com.example.studify_madproject.R;
 
 import java.util.ArrayList;
@@ -35,16 +37,21 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.noteTitle.setText(titles.get(position));
         holder.noteContent.setText(content.get(position));
 
-        holder.cardView.setCardBackgroundColor(holder.view.getResources().getColor(getRandomColor(), null));
+        int code = getRandomColor();
+        holder.cardView.setCardBackgroundColor(holder.view.getResources().getColor(code, null));
 
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), NoteDetails.class);
 
+                intent.putExtra("title", titles.get(position));
+                intent.putExtra("content", content.get(position));
+                view.getContext().startActivity(intent);
             }
         });
     }
