@@ -3,11 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Dhanush/AndroidStudioProjects/Studify---MAD-Project/app/src/main/res/drawable/ic_baseline_save_24.xml" value="0.1" />
         <entry key="..\:/Users/Dhanush/AndroidStudioProjects/Studify---MAD-Project/app/src/main/res/drawable/splash_background.xml" value="0.144" />
+        <entry key="..\:/Users/Dhanush/AndroidStudioProjects/Studify---MAD-Project/app/src/main/res/layout/activity_add_note.xml" value="0.1" />
         <entry key="..\:/Users/Dhanush/AndroidStudioProjects/Studify---MAD-Project/app/src/main/res/layout/activity_authenticate.xml" value="0.25" />
         <entry key="..\:/Users/Dhanush/AndroidStudioProjects/Studify---MAD-Project/app/src/main/res/layout/activity_dashboard.xml" value="0.225" />
+        <entry key="..\:/Users/Dhanush/AndroidStudioProjects/Studify---MAD-Project/app/src/main/res/layout/activity_edit_note.xml" value="0.1" />
         <entry key="..\:/Users/Dhanush/AndroidStudioProjects/Studify---MAD-Project/app/src/main/res/layout/activity_main.xml" value="0.2782874617737003" />
-        <entry key="..\:/Users/Dhanush/AndroidStudioProjects/Studify---MAD-Project/app/src/main/res/layout/activity_note_details.xml" value="0.1" />
+        <entry key="..\:/Users/Dhanush/AndroidStudioProjects/Studify---MAD-Project/app/src/main/res/layout/activity_note_details.xml" value="0.25" />
         <entry key="..\:/Users/Dhanush/AndroidStudioProjects/Studify---MAD-Project/app/src/main/res/layout/activity_sign_up.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/Dhanush/AndroidStudioProjects/Studify---MAD-Project/app/src/main/res/layout/content_edit_notes.xml" value="0.25" />
         <entry key="..\:/Users/Dhanush/AndroidStudioProjects/Studify---MAD-Project/app/src/main/res/layout/content_note_details.xml" value="0.1" />
@@ -23,7 +26,6 @@
         <entry key="..\:/Users/daivi/AndroidStudioProjects/Studify---MAD-Project/app/src/main/res/layout/activity_authenticate.xml" value="0.1" />
         <entry key="..\:/Users/daivi/AndroidStudioProjects/Studify---MAD-Project/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/daivi/AndroidStudioProjects/Studify---MAD-Project/app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
-        <entry key="..\:/Users/daivi/AndroidStudioProjects/Studify---MAD-Project/app/src/main/res/layout/fragment_profile.xml" value="0.24074074074074073" />
       </map>
     </option>
   </component>

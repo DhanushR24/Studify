@@ -79,7 +79,6 @@ public class Authenticate extends AppCompatActivity {
                 em=email.getEditText().getText().toString();
                 ps=password.getEditText().getText().toString();
                 if(validate.checkEm(em) && validate.checkPass(ps)) {
-                Toast.makeText(Authenticate.this, "Valid Credentials", Toast.LENGTH_SHORT).show();
                 mAuth.signInWithEmailAndPassword(em,ps).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -87,14 +86,18 @@ public class Authenticate extends AppCompatActivity {
                         {
                             FirebaseUser user= mAuth.getCurrentUser();
                             if(user.isEmailVerified()) {
-                                Toast.makeText(Authenticate.this, "Signin SuccessFull", Toast.LENGTH_SHORT).show();
+                                // Toast.makeText(Authenticate.this, "Signin Successful", Toast.LENGTH_SHORT).show();
+                                Snackbar.make(findViewById(android.R.id.content), "Sign In Successful", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
                                 Intent i = new Intent(getApplicationContext(), Dashboard.class);
                                 startActivity(i);
                                 finish();
                             }
                             else
                             {
-                                Toast.makeText(Authenticate.this, "Please Verify Your Email", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(Authenticate.this, "Please Verify Your Email", Toast.LENGTH_SHORT).show();
+                                Snackbar.make(findViewById(android.R.id.content), "Please verify your email", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
                             }
                         }
                         else

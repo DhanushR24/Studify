@@ -14,6 +14,7 @@ import com.example.studify_madproject.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -33,18 +34,24 @@ public class Dashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_dashboard);
+        replaceFragment(new HomeFragment());
+
         mAuth=FirebaseAuth.getInstance();
         us=mAuth.getCurrentUser();
-        replaceFragment(new HomeFragment());
         FirebaseDatabase fdb=FirebaseDatabase.getInstance();
-        DatabaseReference rootref= fdb.getReference();
+        DatabaseReference rootref = fdb.getReference();
+
         FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference nameref=rootref.child("Users").child(user.getUid()).child("Name");
+        DatabaseReference nameref = rootref.child("Users").child(user.getUid()).child("Name");
+
         nameref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 name = snapshot.getValue().toString();
-                Toast.makeText(Dashboard.this, "Welcome"+snapshot.getValue().toString()+"!", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(Dashboard.this, "Welcome"+name+"!", Toast.LENGTH_SHORT).show();
+
+                Snackbar.make(findViewById(android.R.id.content), "Hey there, " + name, Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
 
             @Override

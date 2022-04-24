@@ -10,6 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudifyMADProject">
         <activity
+            android:name=".EditNote"
+            android:exported="false" />
+        <activity
+            android:name=".AddNote"
+            android:exported="false"
+            android:label="@string/title_activity_add_note"
+            android:theme="@style/Theme.StudifyMADProject.NoActionBar" />
+        <activity
             android:name=".NoteDetails"
             android:exported="false"
             android:label="@string/title_activity_note_details"
