@@ -32,6 +32,8 @@
         android:textColor="@color/pink_primary"
 
         android:transitionName="logoText"
+
+        android:autoSizeTextType="uniform"
         />
 
     <TextView

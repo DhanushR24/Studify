@@ -12,8 +12,8 @@
 
     <ImageView
         android:id="@+id/logoRounded"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:src="@drawable/student_smile"
         android:layout_gravity="center"
 
@@ -25,13 +25,13 @@
         android:layout_width="wrap_content"
         android:layout_height="119dp"
 
+        android:autoSizeTextType="uniform"
         android:fontFamily="@font/bungee"
-        android:textColor="#e11e34"
         android:text="Hey there, Welcome back"
-        android:textSize="40sp"
+        android:textColor="#e11e34"
 
-        android:transitionName="logoText"
-        />
+        android:textSize="40sp"
+        android:transitionName="logoText" />
 
     <TextView
         android:id="@+id/logoTag"

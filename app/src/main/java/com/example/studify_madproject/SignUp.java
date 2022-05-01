@@ -98,7 +98,6 @@ public class SignUp extends AppCompatActivity {
                                                     }
                                                 }
                                             });
-                                    Toast.makeText(SignUp.this, user.getEmail() + "Signup Success", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

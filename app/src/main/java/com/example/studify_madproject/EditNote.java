@@ -83,8 +83,8 @@ public class EditNote extends AppCompatActivity {
 
                         Intent i = new Intent(view.getContext(), NoteDetails.class);
 
-                        i.putExtra("title", intent.getStringExtra("title"));
-                        i.putExtra("content", intent.getStringExtra("content"));
+                        i.putExtra("title", noteTitle);
+                        i.putExtra("content", noteContent);
                         i.putExtra("noteId", intent.getStringExtra("noteId"));
 
                         startActivity(i);

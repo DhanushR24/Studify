@@ -1,5 +1,6 @@
 package com.example.studify_madproject;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -100,7 +102,7 @@ public class NotesFragment extends Fragment {
 
         noteAdapter = new FirestoreRecyclerAdapter<Note, NoteViewHolder>(allNotes) {
             @Override
-            protected void onBindViewHolder(@NonNull NoteViewHolder holder, int position, @NonNull Note note) {
+            protected void onBindViewHolder(@NonNull NoteViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull Note note) {
                 holder.noteTitle.setText(note.getTitle());
                 holder.noteContent.setText(note.getContent());
 
@@ -138,13 +140,13 @@ public class NotesFragment extends Fragment {
                                 return false;
                             }
                         });
-
+/**
                         menu.getMenu().add("Delete").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                             @Override
                             public boolean onMenuItemClick(MenuItem menuItem) {
 
                                 int pos = holder.getBindingAdapterPosition();
-                                String docId = noteAdapter.getSnapshots().getSnapshot(pos).getId();
+                               // String docId = noteAdapter.getSnapshots().getSnapshot(position).getId();
 
                                 DocumentReference docRef = fStore.collection("notes").document(docId);
                                 docRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -164,7 +166,31 @@ public class NotesFragment extends Fragment {
                                 return false;
                             }
                         });
+ **/
+                        menu.getMenu().add("Delete").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem menuItem) {
 
+                              //  int pos = holder.getBindingAdapterPosition();
+                                // String docId = noteAdapter.getSnapshots().getSnapshot(position).getId();
+
+                                DocumentReference docRef = fStore.collection("notes").document(user.getUid()).collection("myNotes").document(docId);
+                                docRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                       // Snackbar.make(view, "Note Deleted", Snackbar.LENGTH_LONG)
+                                         //       .setAction("Action", null).show();
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Snackbar.make(view, "Something went wrong :(", Snackbar.LENGTH_LONG)
+                                                .setAction("Action", null).show();
+                                    }
+                                });
+                                return false;
+                            }
+                        });
                         menu.show();
                     }
                 });
