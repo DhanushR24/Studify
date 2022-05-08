@@ -40,7 +40,7 @@ public class EditNote extends AppCompatActivity {
 
         tl = findViewById(R.id.toolbar);
         setSupportActionBar(tl);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         fStore = FirebaseFirestore.getInstance();
         fAuth = FirebaseAuth.getInstance();
