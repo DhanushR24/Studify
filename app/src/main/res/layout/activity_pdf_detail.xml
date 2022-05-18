@@ -91,7 +91,7 @@
                     </TableRow>
                     <!--date row-->
                     <TableRow
-                        android:layout.marginTop="5dp">
+                        android:layout_marginTop="5dp">
                         <TextView
                             android:id="@+id/dateLabelTv"
                             style="@style/TextAppearance.MaterialComponents.Caption"

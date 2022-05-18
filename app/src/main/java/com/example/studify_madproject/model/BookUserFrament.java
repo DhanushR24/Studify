@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -87,11 +88,34 @@ public class BookUserFrament extends Fragment {
         {
             loadCategorizedBook();
         }
-        binding.searchEt.addTextChangesListener(new TextWatcher(){
+        binding.searchEt.addTextChangedListener(new TextWatcher(){
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                try{
+                    adapterPdfUser.getFilter().filter(charSequence);
+                }
+                catch (Exception e)
+                {
+                    Log.d(TAG,"onTextChanged()"+e.getMessage());
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
         });
         //here return is not proper return binding.getRoot();
-        return inflater.inflate(R.layout.fragment_book_user_frament, container, false);
+        return binding.getRoot();
+    }
+
+    private void loadMostDownloads(String downloadsCount) {
+
     }
 
     private void loadCategorizedBook() {
