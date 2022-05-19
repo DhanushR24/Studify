@@ -67,6 +67,7 @@ public class HomeFragment extends Fragment {
             categoryId = getArguments().getString("categoryId");
             category = getArguments().getString("category");
             vid = getArguments().getString("vid");
+            Toast.makeText(getContext(), "Test Toast", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -76,6 +77,7 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(LayoutInflater.from(getContext()), container,false);
         Log.d(TAG, "onCreateView: Category" + category);
+        category="All";
         if (category.equals("All")) {
             loadAllBooks();
         } else if (category.equals("Most Viewed")) {
