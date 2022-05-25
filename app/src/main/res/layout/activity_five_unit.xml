@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    tools:context=".FiveUnitActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".FiveUnitActivity">
+
+        <TextView
+            android:id="@+id/subjectName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:fontFamily="@font/antic"
+            android:textAlignment="center"
+            android:textColor="#808080"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.045" />
+
+        <TextView
+            android:id="@+id/pageHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="22dp"
+            android:fontFamily="@font/antic"
+            android:text="Course Contents"
+            android:textColor="#808080"
+            android:textSize="34sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/subjectName" />
+
+        <TextView
+            android:id="@+id/unitNumberText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="22dp"
+            android:fontFamily="@font/antic"
+            android:textColor="#808080"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pageHeader" />
+
+        <TextView
+            android:id="@+id/workHint1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="22dp"
+            android:fontFamily="@font/antic"
+            android:text="Hold onto a unit to reveal content "
+            android:textColor="#9F9D9D"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/unitNumberText" />
+
+        <TextView
+            android:id="@+id/workHint2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="22dp"
+            android:fontFamily="@font/antic"
+            android:text="Select between Theory or Videos"
+            android:textColor="#9F9D9D"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/workHint1" />
+
+        <!--    <Button-->
+        <!--        android:id="@+id/unit1"-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:fontFamily="@font/antic"-->
+        <!--        android:text="Unit 1"-->
+        <!--        android:textSize="16sp"-->
+        <!--        tools:layout_editor_absoluteX="37dp"-->
+        <!--        tools:layout_editor_absoluteY="477dp" />-->
+
+
+        <!--    <Button-->
+        <!--        android:id="@+id/unit2"-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:fontFamily="@font/antic"-->
+        <!--        android:text="Unit 2"-->
+        <!--        tools:layout_editor_absoluteX="101dp"-->
+        <!--        tools:layout_editor_absoluteY="541dp" />-->
+
+        <!--    <Button-->
+        <!--        android:id="@+id/unit3"-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:fontFamily="@font/antic"-->
+        <!--        android:text="Unit 3"-->
+        <!--        tools:layout_editor_absoluteX="221dp"-->
+        <!--        tools:layout_editor_absoluteY="525dp" />-->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/unit1"
+            style="?attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/antic"
+            android:text="Unit 1"
+            android:textColor="#D21E88E5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.072"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/workHint2" />
+
+        <!--    <Button-->
+        <!--        android:id="@+id/unit4"-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:fontFamily="@font/antic"-->
+        <!--        android:text="Unit 4"-->
+        <!--        tools:layout_editor_absoluteX="37dp"-->
+        <!--        tools:layout_editor_absoluteY="611dp" />-->
+
+        <!--    <Button-->
+        <!--        android:id="@+id/unit5"-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:fontFamily="@font/antic"-->
+        <!--        android:text="Unit 5"-->
+        <!--        tools:layout_editor_absoluteX="228dp"-->
+        <!--        tools:layout_editor_absoluteY="618dp" />-->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/unit2"
+            style="?attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/antic"
+            android:text="Unit 2"
+            android:textColor="#D21E88E5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.072"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/unit1" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/unit3"
+            style="?attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/antic"
+            android:text="Unit 3"
+            android:textColor="#D21E88E5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.072"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/unit2" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/unit4"
+            style="?attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/antic"
+            android:text="Unit 4"
+            android:textColor="#D21E88E5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.078"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/unit3" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/unit5"
+            style="?attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="32dp"
+            android:fontFamily="@font/antic"
+            android:text="Unit 5"
+            android:textColor="#D21E88E5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.078"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/unit4" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

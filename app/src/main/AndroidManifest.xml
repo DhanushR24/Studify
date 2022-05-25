@@ -13,6 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudifyMADProject">
         <activity
+            android:name=".WebPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FiveUnitActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ThreeUnitActivity"
+            android:exported="false" />
+        <activity
             android:name=".EditNote"
             android:exported="false" />
         <activity
