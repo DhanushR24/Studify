@@ -84,7 +84,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        profile_icon = view.findViewById(R.id.profile_pic);
 
 
         ml=view.findViewById(R.id.ml_explore);

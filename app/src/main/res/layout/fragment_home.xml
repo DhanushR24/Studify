@@ -18,25 +18,12 @@
         tools:context=".HomePageActivity">
 
 
-        <ImageView
-            android:id="@+id/profile_pic"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginBottom="10dp"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.883"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.333"
-            app:srcCompat="@drawable/ic_launcher_background" />
-
         <LinearLayout
             android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="28dp"
             android:layout_marginEnd="16dp"
             android:gravity="center|center_horizontal|center_vertical"
             android:orientation="horizontal"
@@ -45,6 +32,7 @@
             android:paddingEnd="12dp"
             android:paddingBottom="12dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
